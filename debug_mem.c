@@ -688,4 +688,3 @@ char *_media_strndup(const char *file, const int line, const char *func, const c
 
 	return newblk;
 }
-
