@@ -17,6 +17,14 @@
 		#define __file__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 	#endif
 
+	static inline void dbg_print(const char *fmt, ...)
+	{
+		va_list args;
+		va_start(args, fmt);
+		vfprintf(stderr, fmt, args);
+		va_end(args);
+	}
+
 	#define dbg_malloc(sz)        _media_malloc(__file__, __LINE__, __func__ , sz)
 	#define dbg_calloc(nmb, sz)   _media_calloc(__file__, __LINE__, __func__ , nmb, sz)
 	#define dbg_realloc(ptr, sz)  _media_realloc(__file__, __LINE__, __func__ , ptr, sz)
@@ -26,7 +34,7 @@
 
 	#define m_dbg(fmt,args...) \
 			do{\
-				fprintf(stderr, "\e[2;37m>[%s %5d:%s]\e[m "fmt, __file__, __LINE__, __func__, ##args);\
+				dbg_print("\e[2;37m>[%s %5d:%s]\e[m "fmt, __file__, __LINE__, __func__, ##args);\
 			}while(0)
 #else
 	#define dbg_malloc(sz)        malloc(sz)
