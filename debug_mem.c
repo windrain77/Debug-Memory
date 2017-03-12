@@ -601,7 +601,7 @@ void *_media_realloc(const char *file, const int line, const char *func, void *p
 	return newblk;
 }
 
-unsigned char *_media_strdup(const char *file, const int line, const char *func, const char *ptr)
+char *_media_strdup(const char *file, const int line, const char *func, const char *ptr)
 {  
 	int olen;
 	char *newblk;
@@ -642,7 +642,7 @@ unsigned char *_media_strdup(const char *file, const int line, const char *func,
 	return newblk;
 }
 
-unsigned char *_media_strndup(const char *file, const int line, const char *func, const char *ptr, size_t sz)
+char *_media_strndup(const char *file, const int line, const char *func, const char *ptr, size_t sz)
 {  
 	int olen;
 	char *newblk;
