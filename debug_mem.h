@@ -53,8 +53,8 @@ void _media_free(const char *file, const int line, const char *func, void *blk);
 void *_media_malloc(const char *file, const int line, const char *func, size_t sz);
 void *_media_calloc(const char *file, const int line, const char *func, size_t nmb, size_t sz);
 void *_media_realloc(const char *file, const int line, const char *func, void *ptr, size_t sz);
-unsigned char *_media_strdup(const char *file, const int line, const char *func, const char *ptr);
-unsigned char *_media_strndup(const char *file, const int line, const char *func, const char *ptr, size_t sz);
+char *_media_strdup(const char *file, const int line, const char *func, const char *ptr);
+char *_media_strndup(const char *file, const int line, const char *func, const char *ptr, size_t sz);
 
 
 #endif // __DEBUG_MEM_H__
