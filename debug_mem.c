@@ -219,7 +219,6 @@ static void _remove_node(media_sysmem_info **head, media_sysmem_info *delnode)
 /* initializing */
 void media_mem_init(char *tag, int KbytesSize)
 {
-	int ix;
 	char logbuff[1024] = {0,};
 	
 	//m_dbg("(%d)\n",KbytesSize);
@@ -470,7 +469,6 @@ static void __media_memory_free(const char *file ,const int line, const char *fu
 
 static int __media_memory_size(unsigned char *blk)
 {
-	int ix = 0;
 	media_sysmem_info *trace;
 
 	//m_dbg("__size()\n");
@@ -530,13 +528,13 @@ void *_media_calloc(const char *file, const int line, const char *func, size_t n
 	
 	blk = __media_memory_alloc(file, line, func, (nmb*sz));
 	if(verbose) 
-		m_dbg("calloc(%4d,%4d)=0x%08x <%s|%05d|%s> \n", nb, sz, (void*)blk, file, line, func);
+		m_dbg("calloc(%4d,%4d)=0x%08x <%s|%05d|%s> \n", nmb, sz, (void*)blk, file, line, func);
 
 	pthread_mutex_unlock(&media_mem_lock);
 	return blk;
 }
 
-void *_media_realloc(const char *file, const int line, const char *func, void *ptr, int sz)
+void *_media_realloc(const char *file, const int line, const char *func, void *ptr, size_t sz)
 {  
 	int olen;
 	void *newblk;
